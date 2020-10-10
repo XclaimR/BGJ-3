@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]float speed;
+    [SerializeField]float speed = 2f ;
     [SerializeField]float waitTime = 2f;
     [SerializeField]bool MoveRight = true;
     [SerializeField] bool isPause = false;
