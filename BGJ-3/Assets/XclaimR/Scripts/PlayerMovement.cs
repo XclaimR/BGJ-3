@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpHeight = 10f;
     //[SerializeField] float jumpSpeed = 5f;
 
-    [SerializeField]private bool isGrounded = false;
+    [SerializeField]public bool isGrounded = false;
 
     Vector3 vector;
 
