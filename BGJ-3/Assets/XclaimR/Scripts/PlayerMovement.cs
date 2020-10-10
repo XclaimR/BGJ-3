@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]public bool isGrounded = false;
 
+
     Vector3 vector;
 
     Rigidbody2D body;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         vector.x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         transform.position += vector;
 
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButton("Jump") && isGrounded && body.velocity.y == 0)
         {
             //Debug.Log("Jump");
             isGrounded = false;
@@ -40,14 +41,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        body.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
+        body.AddForce(new Vector2(0,jumpHeight), ForceMode2D.Impulse);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        //Physics.IgnoreLayerCollision(8, 12, (.velocity.y > 0.0f));
+        if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
         }
+
+        
     }
 }
