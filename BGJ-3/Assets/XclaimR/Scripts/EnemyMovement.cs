@@ -6,9 +6,9 @@ public class EnemyMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]float speed = 2f ;
-    [SerializeField]float waitTime = 2f;
-    [SerializeField]bool MoveRight = true;
-    [SerializeField] bool isPause = false;
+    [SerializeField]public float waitTime = 2f;
+    [SerializeField]public bool MoveRight = true;
+    [SerializeField] public bool isPause = false;
 
     private float x_scale;
     private float y_scale;
@@ -36,7 +36,8 @@ public class EnemyMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
-        if (trig.gameObject.CompareTag("Turn"))
+        
+        if (trig.gameObject.CompareTag("Turn") && gameObject.CompareTag("Enemy"))
         {
             isPause = true;
             Invoke("Resume", waitTime);

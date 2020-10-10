@@ -8,6 +8,7 @@ TagManager:
   - Collectible
   - Enemy
   - Turn
+  - Flashlight
   layers:
   - Default
   - TransparentFX
